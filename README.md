@@ -1,6 +1,6 @@
 # BatchDownloader
 
-<b>Introduction:</b>
+<b>Introduction</b>
 
 C# library for accessing pyLoad's Http-API in a strongly typed fashion.
 The intention for writing this library was the fact that the current beta of pyLoad (0.5) automatically 
@@ -9,10 +9,10 @@ With this library its very easy to add large amounts of unrelated links to pyLoa
 and potentially the same output directory. 
 For that reason this project comes with a simple GUI in the shape of a C# Forms Application.
 
-<b>Usage:</b>
+<b>Usage</b>
 
 ```
-var apiCaller = new ApiCaller(new Url("http://192.168.1.35:8000"),new Url("api"));
+var apiCaller = new ApiCaller("192.168.1.35", 8000);
 
 apiCaller.Login("username", "password");
 
@@ -28,14 +28,14 @@ Console.WriteLine(String.Format("Folder: {0} | {1} of {2} links downloaded",
     package.folder, package.stats.linksdone, package.stats.linkstotal));
 ```
 
-**Dependencies:**
+**Dependencies**
 
 * [Flurl](https://www.nuget.org/packages/Flurl/)
 * [RestSharp](https://www.nuget.org/packages/RestSharp/)
 
 
-<b>Roadmap:</b>
+<b>Roadmap</b>
 
-* Adding the remaining API-Methods
-* Refactoring API-Calls to make each API-Call more conveniant
+* Adding the remaining API-Methods (all working, parameterless methods added)
+* Refactoring API-Calls to make each API-Call more conveniant [done]
 * Add more functionality to the GUI
