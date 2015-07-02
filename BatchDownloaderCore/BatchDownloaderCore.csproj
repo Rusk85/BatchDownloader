@@ -64,7 +64,6 @@
     <Compile Include="ApiMethods\IApiMethods.cs" />
     <Compile Include="ApiMethods\IMethodUrl.cs" />
     <Compile Include="ApiMethods\IMethodParameters.cs" />
-    <Compile Include="ApiMethods\MethodFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerializationHelper.cs" />
   </ItemGroup>
