@@ -14,7 +14,7 @@ For that reason this project comes with a simple GUI in the shape of a C# Forms 
 ```
 var apiCaller = new ApiCaller(new Url("http://192.168.1.35:8000"),new Url("api"));
 
-apiCaller.Login("nas", "nas");
+apiCaller.Login("username", "password");
 
 // relative to pyLoad's defined download directory
 // creates/adds downloads to : <download_dir>/links/today
