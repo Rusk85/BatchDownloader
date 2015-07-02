@@ -25,7 +25,7 @@ namespace BatchDownloaderGUI
         {
             InitializeComponent();
             _downloader = new ApiCaller(new Url("http://192.168.1.35:8000"), new Url("api"));
-            _downloader.Login(new LoginMethod("nas", "nas"));
+            _downloader.Login("nas", "nas");
             this.Text = "BatchDownloader";
         }
 
@@ -38,15 +38,14 @@ namespace BatchDownloaderGUI
         {
             var text = Regex.Split(richTextBox1.Text, String.Format("{0}|{1}", Environment.NewLine, "\n"));
 
-            var links = text.Where(l => l.Trim().Length > 0)
-                .Select(l => new Url(l)).ToList();
+            var links = text.Where(l => l.Trim().Length > 0).ToArray();
 
             var destination = textBox1.Text.Trim().Length > 0 
                 ? textBox1.Text : null;
 
             if (links.Any())
             {
-                _downloader.AddPackage(new AddPackageMethod(links, destination));
+                _downloader.AddPackage(destination, links);
                 richTextBox1.Text = String.Empty;
                 textBox1.Text = String.Empty;
             }

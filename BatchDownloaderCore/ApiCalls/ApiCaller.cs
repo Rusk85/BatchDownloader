@@ -55,25 +55,30 @@ namespace BatchDownloaderCore.ApiCalls
             return _httpClient.Execute<T>(request);
         }
 
-        public PackageInfo GetPackageInfo(GetPackageInfoMethod packageInfo)
+        public long AddPackage(params string[] links)
         {
-            return CallApi<PackageInfo>(packageInfo);
+            return AddPackage(null, links);
         }
 
-        public long AddPackage(AddPackageMethod addPackageMethod)
+        public long AddPackage(string relativeDestination, params string[] links)
         {
-            return CallApi<long>(addPackageMethod);
+            var ap = new AddPackageMethod(links.Select(l => new Url(l)).ToList(), relativeDestination);
+            return CallApi<long>(ap);
         }
 
-        public long GetFreeSpace(GetFreeSpaceMethod getFreeSpaceMethod)
+        public PackageInfo GetPackageInfo(long packageId)
         {
-            return CallApi<long>(getFreeSpaceMethod);
+            return CallApi<PackageInfo>(new GetPackageInfoMethod(packageId));
         }
 
-        public string Login(LoginMethod loginMethod)
+        public long GetFreeSpace()
         {
-            return CallApi<string>(loginMethod);
+            return CallApi<long>(new GetFreeSpaceMethod());
         }
 
+        public string Login(string username, string password)
+        {
+            return CallApi<string>(new LoginMethod(username, password));
+        }
     }
 }

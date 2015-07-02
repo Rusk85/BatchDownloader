@@ -1,4 +1,5 @@
 ﻿using BatchDownloaderCore.ApiClasses;
+using Flurl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,20 +10,14 @@ namespace BatchDownloaderCore.ApiMethods
 {
     public interface IApiMethods
     {
-        PackageInfo GetPackageInfo(GetPackageInfoMethod packageInfoMethod);
+        PackageInfo GetPackageInfo(long packageId);
 
-        /// <summary>
-        /// Add a new Package for downloading.
-        /// </summary>
-        /// <param name="addPackageMethod"></param>
-        /// <returns>The package id.</returns>
-        long AddPackage(AddPackageMethod addPackageMethod);
+        long AddPackage(params string[] links);
 
-        long GetFreeSpace(GetFreeSpaceMethod getFreeSpaceMethod);
+        long AddPackage(string relativeDestination, params string[] links);
 
-        string Login(LoginMethod loginMethod);
+        long GetFreeSpace();
 
-
-
+        string Login(string username, string password);
     }
 }

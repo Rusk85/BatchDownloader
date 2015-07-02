@@ -44,7 +44,7 @@ namespace BatchDownloaderGUI
                 new Url("api")
             );
 
-            var loggedIn = apiCaller.Login(new LoginMethod("nas", "nas"));
+            var loggedIn = apiCaller.Login("nas", "nas");
 
             var links = new List<Url>
             {
@@ -54,7 +54,7 @@ namespace BatchDownloaderGUI
                 new Url(@"http://uploaded.net/file/zxvzn7r5"),
             };
 
-            var pid = apiCaller.AddPackage(new AddPackageMethod(links));
+            var pid = apiCaller.AddPackage(links.Select(l => l.ToString()).ToArray());
 
         }
 
