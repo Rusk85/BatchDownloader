@@ -56,9 +56,9 @@ namespace BatchDownloaderCore.ApiMethods
 
     #region Parameterized Api Methods
 
-    public sealed class GetPackageInfoMethod : ParameterizedApiMethod
+    public sealed class GetPackageInfo : ParameterizedApiMethod
     {
-        public GetPackageInfoMethod(long packageId)
+        public GetPackageInfo(long packageId)
         {
             addParameter("pid", packageId);
         }
@@ -69,9 +69,9 @@ namespace BatchDownloaderCore.ApiMethods
         }
     }
 
-    public sealed class AddPackageMethod : ParameterizedApiMethod
+    public sealed class AddPackage : ParameterizedApiMethod
     {
-        public AddPackageMethod(IList<Url> links, string relativeDestinationPath = null)
+        public AddPackage(IList<Url> links, string relativeDestinationPath = null)
         {
             Func<string, string> trimDestination =
                 dest => dest.Trim(Path.PathSeparator, '/', '\\');
@@ -96,9 +96,9 @@ namespace BatchDownloaderCore.ApiMethods
         }
     }
 
-    public sealed class LoginMethod : ParameterizedApiMethod
+    public sealed class Login : ParameterizedApiMethod
     {
-        public LoginMethod(string username, string password)
+        public Login(string username, string password)
         {
             addParameter("username", username);
             addParameter("password", password);
@@ -115,7 +115,7 @@ namespace BatchDownloaderCore.ApiMethods
 
     #region Parameterless Api Methods
 
-    public sealed class GetServerVersionMethod : ApiMethod
+    public sealed class GetServerVersion : ApiMethod
     {
         protected override Url methodUrl
         {
@@ -130,6 +130,113 @@ namespace BatchDownloaderCore.ApiMethods
             get { return new Url("freeSpace"); }
         }
     }
+
+    public sealed class GetAccountTypes : ApiMethod
+    {
+        protected override Url methodUrl
+        {
+            get { return new Url("getAccountTypes"); }
+        }
+    }
+
+    public sealed class GetAllInfo : ApiMethod
+    {
+        protected override Url methodUrl
+        {
+            get { return new Url("getAllInfo"); }
+        }
+    }
+
+    public sealed class GetAllUserData : ApiMethod
+    {
+        protected override Url methodUrl
+        {
+            get { return new Url("getAllUserData"); }
+        }
+    }
+
+    public sealed class GetConfig : ApiMethod
+    {
+        protected override Url methodUrl
+        {
+            get { return new Url("getConfig"); }
+        }
+    }
+
+    public sealed class GetPluginConfig : ApiMethod
+    {
+        protected override Url methodUrl
+        {
+            get { return new Url("getPluginConfig"); }
+        }
+    }
+
+    public sealed class PauseServer : ApiMethod
+    {
+        protected override Url methodUrl
+        {
+            get { return new Url("pauseServer"); }
+        }
+    }
+
+    public sealed class Restart : ApiMethod
+    {
+        protected override Url methodUrl
+        {
+            get { return new Url("restart"); }
+        }
+    }
+
+    public sealed class RestartFailed : ApiMethod
+    {
+        protected override Url methodUrl
+        {
+            get { return new Url("restartFailed"); }
+        }
+    }
+
+    public sealed class StopAllDownloads : ApiMethod
+    {
+        protected override Url methodUrl
+        {
+            get { return new Url("stopAllDownloads"); }
+        }
+    }
+
+    public sealed class TogglePause : ApiMethod
+    {
+        protected override Url methodUrl
+        {
+            get { return new Url("togglePause"); }
+        }
+    }
+
+    public sealed class ToggleReconnect : ApiMethod
+    {
+        protected override Url methodUrl
+        {
+            get { return new Url("toggleReconnect"); }
+        }
+    }
+
+    public sealed class UnpauseServer : ApiMethod
+    {
+        protected override Url methodUrl
+        {
+            get { return new Url("unpauseServer"); }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
     #endregion 

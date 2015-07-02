@@ -57,7 +57,9 @@
     <Compile Include="ApiCalls\IApiCaller.cs" />
     <Compile Include="ApiCalls\IHttpClient.cs" />
     <Compile Include="ApiClasses\ApiClass.cs" />
+    <Compile Include="ApiClasses\GetConfig.cs" />
     <Compile Include="ApiClasses\GetPackageInfo.cs" />
+    <Compile Include="ApiClasses\GetPluginConfig.cs" />
     <Compile Include="ApiMethods\ApiMethods.cs" />
     <Compile Include="ApiMethods\IApiMethods.cs" />
     <Compile Include="ApiMethods\IMethodUrl.cs" />

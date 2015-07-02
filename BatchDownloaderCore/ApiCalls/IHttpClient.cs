@@ -7,6 +7,7 @@ namespace BatchDownloaderCore.ApiCalls
     public interface IHttpClient
     {
         T Execute<T>(RequestContainer request);
+        string Execute(RequestContainer request);
     }
 
     public class RequestContainer

@@ -22,6 +22,12 @@ namespace BatchDownloaderCore.ApiCalls
             return deserializeReponse<T>(response);
         }
 
+        public string Execute(RequestContainer request)
+        {
+            var response = execute(request);
+            return response.Content;
+        }
+
         private IRestResponse execute(RequestContainer request)
         {
             _client = _client ?? new RestClient(request.BaseUrl);

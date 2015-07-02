@@ -21,12 +21,13 @@ namespace BatchDownloaderGUI
             //Test_AddDownloads();
             //Test_ParamLessMethods();
             //Test_MethodFactory();
-            Test_Login();
+            //Test_Login();
+            Test_MethodRepresentations();
         }
 
         public static void Test_MethodFactory()
         {
-            //var gm = new GetPackageInfoMethod(
+            //var gm = new GetPackageInfo(
             //    new Parameter 
             //{ 
             //    Name = "test",
@@ -38,11 +39,7 @@ namespace BatchDownloaderGUI
 
         public static void Test_Login()
         {
-            var apiCaller = new ApiCaller
-            (
-                new Url("http://192.168.1.35:8000"),
-                new Url("api")
-            );
+            var apiCaller = new ApiCaller("192.168.1.35", 8000);
 
             var loggedIn = apiCaller.Login("nas", "nas");
 
@@ -55,6 +52,24 @@ namespace BatchDownloaderGUI
             };
 
             var pid = apiCaller.AddPackage(links.Select(l => l.ToString()).ToArray());
+
+            var package = apiCaller.GetPackageInfo(pid);
+
+            Console.WriteLine(String.Format("Folder: {0} | {1} of {2} links downloaded", 
+                package.folder, package.stats.linksdone, package.stats.linkstotal));
+
+        }
+
+        public static void Test_MethodRepresentations()
+        {
+            var api = new ApiCaller("192.168.1.35", 8000);
+
+            var l = api.Login("nas", "nas");
+
+            //Debug.WriteLine(l);
+
+            api.UnpauseServer();
+
 
         }
 

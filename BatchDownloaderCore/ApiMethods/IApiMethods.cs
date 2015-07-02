@@ -8,6 +8,12 @@ using System.Threading.Tasks;
 
 namespace BatchDownloaderCore.ApiMethods
 {
+    /// <summary>
+    /// API-Documentation: http://docs.pyload.org/module/module.Api.Api.html
+    /// Tested with current beta version of pyload (0.5).
+    /// Some methods are not supported by the API even though they are documented.
+    /// Those were not included in this library.
+    /// </summary>
     public interface IApiMethods
     {
         PackageInfo GetPackageInfo(long packageId);
@@ -16,8 +22,34 @@ namespace BatchDownloaderCore.ApiMethods
 
         long AddPackage(string relativeDestination, params string[] links);
 
+        string Login(string username, string password);
+
         long GetFreeSpace();
 
-        string Login(string username, string password);
+        List<string> GetAccountTypes();
+
+        string GetAllInfo();
+
+        string GetAllUserData();
+
+        Config GetConfig();
+
+        IList<PluginConfig> GetPluginConfig();
+
+        string GetServerVersion();
+
+        void PauseServer();
+
+        void Restart();
+
+        void RestartFailed();
+
+        void StopAllDownloads();
+
+        bool TogglePause();
+
+        bool ToggleReconnect();
+
+        void UnpauseServer();
     }
 }

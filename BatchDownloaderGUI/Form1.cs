@@ -24,7 +24,7 @@ namespace BatchDownloaderGUI
         public MainWindow()
         {
             InitializeComponent();
-            _downloader = new ApiCaller(new Url("http://192.168.1.35:8000"), new Url("api"));
+            _downloader = new ApiCaller("192.168.1.35", 8000);
             _downloader.Login("nas", "nas");
             this.Text = "BatchDownloader";
         }

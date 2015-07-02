@@ -15,7 +15,7 @@ namespace BatchDownloaderGUI
         static void Main()
         {
 
-            //Tests.RunTests();
+            Tests.RunTests();
 
 
             Application.EnableVisualStyles();

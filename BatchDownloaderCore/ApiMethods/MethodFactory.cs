@@ -90,11 +90,11 @@
 //        public IParameterizedMethod GetMethod<T>(params object[] parameterList) 
 //            where T : IParameterizedMethod
 //        {
-//            if (typeof(T) == typeof(AddPackageMethod))
+//            if (typeof(T) == typeof(AddPackage))
 //            {
 //                var links = (parameterList[0] as List<Url>);
 //                var path = parameterList.Length == 2 ? (parameterList[1] as string) : null;
-//                //var m = new AddPackageMethod(links, path);
+//                //var m = new AddPackage(links, path);
 //            }
 //            return null;
 //        }
