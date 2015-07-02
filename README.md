@@ -14,20 +14,13 @@ For that reason this project comes with a simple GUI in the shape of a C# Forms 
 ```
 var apiCaller = new ApiCaller(new Url("http://192.168.1.35:8000"),new Url("api"));
 
-apiCaller.Login(new LoginMethod("nas", "nas"));
-
-var links = new List<Url>
-{
-        new Url(@"http://link.com/1.rar"),
-        new Url(@"http://link.com/2.rar"),
-        new Url(@"http://link.com/3.rar"),
-};
+apiCaller.Login("nas", "nas");
 
 // relative to pyLoad's defined download directory
 // creates/adds downloads to : <download_dir>/links/today
 var destination = @"links/today";
 
-var pid = apiCaller.AddPackage(new AddPackageMethod(links, destination));
+var pid = apiCaller.AddPackage(destination, @"http://link.com/1.rar", @"http://link.com/2.rar");
 ```
 
 **Dependencies:**
