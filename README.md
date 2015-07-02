@@ -27,7 +27,7 @@ var links = new List<Url>
 // creates/adds downloads to : <download_dir>/links/today
 var destination = @"links/today";
 
-var pid = apiCaller.AddPackage(new AddPackageMethod(links), destination);
+var pid = apiCaller.AddPackage(new AddPackageMethod(links, destination));
 ```
 
 **Dependencies:**
