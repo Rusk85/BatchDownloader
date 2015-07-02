@@ -21,6 +21,11 @@ apiCaller.Login("nas", "nas");
 var destination = @"links/today";
 
 var pid = apiCaller.AddPackage(destination, @"http://link.com/1.rar", @"http://link.com/2.rar");
+
+var package = apiCaller.GetPackageInfo(pid);
+
+Console.WriteLine(String.Format("Folder: {0} | {1} of {2} links downloaded", 
+    package.folder, package.stats.linksdone, package.stats.linkstotal));
 ```
 
 **Dependencies:**
