@@ -11,7 +11,7 @@ For that reason this project comes with a simple GUI in the shape of a C# Forms 
 
 <b>Usage</b>
 
-```
+```c#
 var apiCaller = new ApiCaller("192.168.1.35", 8000);
 
 apiCaller.Login("username", "password");
