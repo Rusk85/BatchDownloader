@@ -19,9 +19,9 @@ apiCaller.Login("username", "password");
 
 // relative to pyLoad's defined download directory
 // creates/adds downloads to : <download_dir>/links/today
-var destination = @"links/today";
+var destination = "links/today";
 
-var pid = apiCaller.AddPackage(destination, @"http://link.com/1.rar", @"http://link.com/2.rar");
+var pid = apiCaller.AddPackage(destination, "http://link.com/1.rar", "http://link.com/2.rar");
 
 var package = apiCaller.GetPackageInfo(pid);
 
